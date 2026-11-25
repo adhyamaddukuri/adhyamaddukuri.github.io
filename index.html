@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://adhyamaddukuri.github.io/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -160,18 +160,32 @@
     <section class="wrap section" id="projects">
       <h2>Projects</h2>
       <div class="grid">
-        <article class="card">
+        <article class="card project">
+          <button type="button" class="cover" data-full="assets/projects/slugroute-route.jpg" aria-label="Enlarge: SlugRoute comparing walking routes on the campus map"><img src="assets/projects/slugroute-route.jpg" alt="SlugRoute comparing walking routes on the campus map" width="1600" height="790" loading="lazy"></button>
           <p class="badge">2× CruzHacks Winner · Jan 2026</p>
           <h3>SlugRoute</h3>
           <p>Campus navigation that compares routes by wind exposure, effort, and comfort using Windborne weather data, with hands-free voice guidance.</p>
           <ul class="tags small"><li>Next.js</li><li>Mapbox</li><li>Gemini</li><li>ElevenLabs</li><li>Auth0</li><li>Vercel</li></ul>
+          <div class="shots">
+            <button type="button" class="shot" data-full="assets/projects/slugroute-weather.jpg" aria-label="Enlarge: Live campus weather panel"><img src="assets/projects/slugroute-weather.jpg" alt="Live campus weather panel" loading="lazy"></button>
+            <button type="button" class="shot" data-full="assets/projects/slugroute-destinations.jpg" aria-label="Enlarge: Choosing a destination"><img src="assets/projects/slugroute-destinations.jpg" alt="Choosing a destination" loading="lazy"></button>
+            <button type="button" class="shot" data-full="assets/projects/slugroute-friends.jpg" aria-label="Enlarge: Friends nearby"><img src="assets/projects/slugroute-friends.jpg" alt="Friends nearby" loading="lazy"></button>
+            <button type="button" class="shot" data-full="assets/projects/slugroute-login.jpg" aria-label="Enlarge: Sign-in screen"><img src="assets/projects/slugroute-login.jpg" alt="Sign-in screen" loading="lazy"></button>
+          </div>
           <div class="links"><a href="https://devpost.com/software/slugroute" target="_blank" rel="noopener">Devpost ↗</a></div>
         </article>
-        <article class="card">
+        <article class="card project">
+          <button type="button" class="cover" data-full="assets/projects/roost-cover.jpg" aria-label="Enlarge: Roost screens for adding purchases, the dragon home screen, and Ask Dragon"><img src="assets/projects/roost-cover.jpg" alt="Roost screens for adding purchases, the dragon home screen, and Ask Dragon" width="1600" height="1000" loading="lazy"></button>
           <p class="badge">Qualcomm × LiteRT Hackathon · May 2026</p>
           <h3>Roost</h3>
           <p>An Android budgeting app with receipt scanning, spending tracking, and a dragon that rewards saving. Gives offline advice from an on-device Gemma model.</p>
           <ul class="tags small"><li>Kotlin</li><li>Jetpack Compose</li><li>CameraX</li><li>ML Kit</li><li>Room</li><li>LiteRT</li><li>Qualcomm QNN</li></ul>
+          <div class="shots">
+            <button type="button" class="shot" data-full="assets/projects/roost-home.jpg" aria-label="Enlarge: Dragon home screen with weekly budget"><img src="assets/projects/roost-home.jpg" alt="Dragon home screen with weekly budget" loading="lazy"></button>
+            <button type="button" class="shot" data-full="assets/projects/roost-add.jpg" aria-label="Enlarge: Adding a purchase with receipt scan"><img src="assets/projects/roost-add.jpg" alt="Adding a purchase with receipt scan" loading="lazy"></button>
+            <button type="button" class="shot" data-full="assets/projects/roost-budgets.jpg" aria-label="Enlarge: Weekly budgets by category"><img src="assets/projects/roost-budgets.jpg" alt="Weekly budgets by category" loading="lazy"></button>
+            <button type="button" class="shot" data-full="assets/projects/roost-ask.jpg" aria-label="Enlarge: Ask Dragon on-device AI advice"><img src="assets/projects/roost-ask.jpg" alt="Ask Dragon on-device AI advice" loading="lazy"></button>
+          </div>
           <div class="links"><a href="https://devpost.com/software/roost-xfma0q" target="_blank" rel="noopener">Devpost ↗</a><a href="https://github.com/Deepak-karani/roost" target="_blank" rel="noopener">Code ↗</a></div>
         </article>
       </div>
@@ -192,6 +206,18 @@
     <p>© <span id="year"></span> Adhya Maddukuri</p>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <dialog class="lightbox" id="lightbox" aria-label="Screenshot">
+    <img alt="">
+    <button type="button" class="close" aria-label="Close">×</button>
+  </dialog>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img');
+    document.querySelectorAll('[data-full]').forEach(btn => btn.addEventListener('click', () => {
+      lbImg.src = btn.dataset.full; lbImg.alt = btn.querySelector('img').alt; lb.showModal();
+    }));
+    lb.addEventListener('click', () => lb.close());
+  </script>
 </body>
 </html>
