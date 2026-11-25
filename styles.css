@@ -270,3 +270,11 @@ p { text-wrap: pretty; }
 .slide-btn { align-self: flex-start; }
 /* Same 3:4 shape for every carousel photo */
 .slide img { aspect-ratio: 3 / 4; width: auto; object-fit: cover; object-position: center; }
+/* Hero photo shares the same right column as the skills card */
+.hero, .about-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); column-gap: 3.5rem; }
+.portrait { max-width: none; width: 100%; justify-self: stretch; }
+@media (max-width: 60rem) { .about-grid { grid-template-columns: 1fr; } }
+@media (max-width: 44rem) {
+  .hero { grid-template-columns: 1fr; }
+  .portrait { justify-self: center; max-width: 24rem; }
+}
