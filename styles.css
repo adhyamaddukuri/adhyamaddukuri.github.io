@@ -253,3 +253,11 @@ p { text-wrap: pretty; }
   .gallery.food { grid-template-rows: 1fr; }
   .gallery.food .shot { aspect-ratio: auto; height: 100%; min-height: 12rem; }
 }
+/* Henna: tall photo on each end, four small in the middle */
+.gallery.henna { grid-template-columns: repeat(4, 1fr); }
+.gallery.henna .shot:first-child { grid-column: 1; grid-row: 1 / span 2; }
+.gallery.henna .shot:last-child { grid-column: 4; grid-row: 1 / span 2; aspect-ratio: auto; }
+@media (max-width: 40rem) {
+  .gallery.henna { grid-template-columns: repeat(3, 1fr); }
+  .gallery.henna .shot:first-child, .gallery.henna .shot:last-child { grid-column: auto; grid-row: auto; aspect-ratio: 1; }
+}
