@@ -2,7 +2,7 @@
 
 My personal portfolio site. It's plain HTML and CSS with no build step, hosted on GitHub Pages.
 
-**Live:** https://adhyamaddukuri-oss.github.io/my-site/
+**Live:** https://adhyamaddukuri.github.io
 
 ## Editing
 
