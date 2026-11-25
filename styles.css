@@ -242,3 +242,14 @@ body::before {
 .gallery:empty { display: none; }
 .gallery .shot { aspect-ratio: 1; }
 .gallery .shot img { object-position: center; }
+.section-lede { max-width: none; text-wrap: balance; }
+.gallery.henna { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, auto); }
+.gallery.henna .shot:first-child { grid-row: span 2; aspect-ratio: auto; }
+.gallery .shot img { height: 100%; }
+p { text-wrap: pretty; }
+.hobby { display: flex; flex-direction: column; }
+.hobby .gallery { flex: 1; }
+@media (min-width: 58rem) {
+  .gallery.food { grid-template-rows: 1fr; }
+  .gallery.food .shot { aspect-ratio: auto; height: 100%; min-height: 12rem; }
+}
