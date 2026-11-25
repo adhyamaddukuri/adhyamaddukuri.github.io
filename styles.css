@@ -210,3 +210,5 @@ p { margin: 0 0 1em; }
 @media (max-width: 60rem) {
   .about-grid { grid-template-columns: 1fr; }
 }
+.press-thumb { aspect-ratio: 3 / 2; }
+.press-thumb.full { object-fit: contain; background: #e9e7e3; }
