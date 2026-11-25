@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" fill="#000"/>
+  <g stroke="#3a3a3a" stroke-width="1" fill="none">
+    <path d="M0 22H128M0 34H128M0 94H128M0 106H128"/>
+    <path d="M64 64L-40 128M64 64L0 128M64 64L32 128M64 64L64 128M64 64L96 128M64 64L128 128M64 64L168 128"/>
+    <path d="M64 64L-40 0M64 64L0 0M64 64L32 0M64 64L64 0M64 64L96 0M64 64L128 0M64 64L168 0"/>
+  </g>
+  <rect x="8" y="40" width="112" height="48" fill="#000"/>
+  <g fill="#b48cf5" font-family="ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-weight="800" text-anchor="middle" letter-spacing="1">
+    <text x="64" y="62" font-size="22">HACK</text>
+    <text x="64" y="84" font-size="22">.DEV</text>
+  </g>
+</svg>
