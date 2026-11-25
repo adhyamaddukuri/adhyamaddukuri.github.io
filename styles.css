@@ -268,3 +268,5 @@ p { text-wrap: pretty; }
 @media (hover: none) { .car-btn { display: none; } }
 .slide figcaption { width: 0; min-width: 100%; text-wrap: balance; }
 .slide-btn { align-self: flex-start; }
+/* Same 3:4 shape for every carousel photo */
+.slide img { aspect-ratio: 3 / 4; width: auto; object-fit: cover; object-position: center; }
