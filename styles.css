@@ -180,3 +180,36 @@ p { margin: 0 0 1em; }
   position: absolute; top: -.75rem; right: -.75rem; width: 2.25rem; height: 2.25rem; border-radius: 50%;
   border: 0; background: var(--surface); color: var(--text); font-size: 1.4rem; line-height: 1; cursor: pointer;
 }
+
+/* In the News */
+.press { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr)); }
+.press-card {
+  display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 1.25rem; align-items: start;
+  padding: 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  color: var(--text); text-decoration: none; transition: border-color .15s ease, transform .15s ease;
+}
+.press-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.press-thumb { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; }
+.press-thumb.placeholder {
+  display: grid; place-items: center; text-align: center; padding: .75rem;
+  background: linear-gradient(135deg, #003c6c, #76b900); color: #fff; font-weight: 700; font-size: .95rem; line-height: 1.3;
+}
+.press-meta { color: var(--muted); font-size: .8rem; margin-bottom: .35rem; }
+.press-body h3 { font-size: 1.05rem; line-height: 1.3; }
+.press-body p:not(.press-meta) { color: var(--muted); font-size: .92rem; margin-bottom: .6rem; }
+.press-link { color: var(--accent); font-weight: 600; font-size: .9rem; }
+@media (max-width: 30rem) {
+  .press-card { grid-template-columns: 1fr; }
+  .press-thumb { aspect-ratio: 16 / 9; }
+}
+
+/* About: bio + skills side by side on wide screens */
+.about-grid { display: grid; gap: 2rem 3.5rem; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: start; }
+.about-grid .about { max-width: none; }
+.skills-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; }
+.skills-card .skills { margin: 0; gap: 1.25rem; }
+.skills-card .skills > div { grid-template-columns: 1fr; gap: .5rem; }
+.skills-card .skills dt { padding-top: 0; font-weight: 600; letter-spacing: .02em; }
+@media (max-width: 60rem) {
+  .about-grid { grid-template-columns: 1fr; }
+}
