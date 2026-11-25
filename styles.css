@@ -266,3 +266,5 @@ p { text-wrap: pretty; }
 .car-btn.prev { left: -.6rem; }
 .car-btn.next { right: -.6rem; }
 @media (hover: none) { .car-btn { display: none; } }
+.slide figcaption { width: 0; min-width: 100%; text-wrap: balance; }
+.slide-btn { align-self: flex-start; }
