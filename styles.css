@@ -224,3 +224,21 @@ p { margin: 0 0 1em; }
   .hero { grid-template-columns: 1fr; }
   .portrait { order: -1; justify-self: center; max-width: 24rem; }
 }
+
+/* Faded henna background */
+:root { --henna-opacity: .075; }
+@media (prefers-color-scheme: dark) { :root { --henna-opacity: .11; } }
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: url("assets/henna.svg") repeat; background-size: 320px; opacity: var(--henna-opacity);
+}
+
+/* In My Free Time */
+.section-lede { color: var(--muted); max-width: 46rem; }
+.hobbies { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); margin-top: 1.5rem; }
+.hobby { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; }
+.hobby > p { color: var(--muted); font-size: .95rem; }
+.gallery { display: grid; gap: .6rem; grid-template-columns: repeat(3, 1fr); margin-top: 1rem; }
+.gallery:empty { display: none; }
+.gallery .shot { aspect-ratio: 1; }
+.gallery .shot img { object-position: center; }
