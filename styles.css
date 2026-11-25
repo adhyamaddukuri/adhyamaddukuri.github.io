@@ -134,13 +134,17 @@ p { margin: 0 0 1em; }
 }
 
 /* Experience entries with logos */
-.entry { display: flex; gap: 1rem; align-items: flex-start; min-width: 0; }
-.entry > div { min-width: 0; flex: 1; }
-.logo {
-  flex: none; width: 44px; height: 44px; border-radius: 10px;
-  object-fit: contain; background: #fff; border: 1px solid var(--line);
-}
+.timeline > li { grid-template-columns: 44px 9rem 1fr; align-items: start; }
+.logo { width: 44px; height: 44px; border-radius: 10px; object-fit: contain; display: block; }
 .logo.mono {
   display: grid; place-items: center; background: var(--accent-soft);
   color: var(--accent); font-weight: 700; font-size: 1.1rem;
+}
+
+.logo.light { background: #fff; padding: 4px; }
+.timeline > li > div:last-child { min-width: 0; }
+
+@media (max-width: 40rem) {
+  .timeline > li { grid-template-columns: 44px 1fr; column-gap: 1rem; row-gap: .5rem; align-items: center; }
+  .timeline > li > div:last-child { grid-column: 1 / -1; }
 }
