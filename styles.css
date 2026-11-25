@@ -238,26 +238,31 @@ body::before {
 .hobbies { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); margin-top: 1.5rem; }
 .hobby { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; }
 .hobby > p { color: var(--muted); font-size: .95rem; }
-.gallery { display: grid; gap: .6rem; grid-template-columns: repeat(3, 1fr); margin-top: 1rem; }
-.gallery:empty { display: none; }
-.gallery .shot { aspect-ratio: 1; }
-.gallery .shot img { object-position: center; }
 .section-lede { max-width: none; text-wrap: balance; }
-.gallery.henna { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, auto); }
-.gallery.henna .shot:first-child { grid-row: span 2; aspect-ratio: auto; }
-.gallery .shot img { height: 100%; }
 p { text-wrap: pretty; }
 .hobby { display: flex; flex-direction: column; }
-.hobby .gallery { flex: 1; }
-@media (min-width: 58rem) {
-  .gallery.food { grid-template-rows: 1fr; }
-  .gallery.food .shot { aspect-ratio: auto; height: 100%; min-height: 12rem; }
+.hobby /* Photo carousels */
+.carousel { position: relative; margin-top: 1.1rem; }
+.track {
+  display: flex; gap: .75rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none; overscroll-behavior-x: contain; border-radius: 10px;
 }
-/* Henna: tall photo on each end, four small in the middle */
-.gallery.henna { grid-template-columns: repeat(4, 1fr); }
-.gallery.henna .shot:first-child { grid-column: 1; grid-row: 1 / span 2; }
-.gallery.henna .shot:last-child { grid-column: 4; grid-row: 1 / span 2; aspect-ratio: auto; }
-@media (max-width: 40rem) {
-  .gallery.henna { grid-template-columns: repeat(3, 1fr); }
-  .gallery.henna .shot:first-child, .gallery.henna .shot:last-child { grid-column: auto; grid-row: auto; aspect-ratio: 1; }
+.track::-webkit-scrollbar { display: none; }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.slide { flex: 0 0 auto; margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: .45rem; }
+.slide-btn { display: block; padding: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: none; cursor: zoom-in; }
+.slide-btn:hover { border-color: var(--accent); }
+.slide img { display: block; height: clamp(15rem, 24vw, 22rem); width: auto; max-width: 80vw; object-fit: cover; }
+.slide figcaption { font-size: .82rem; text-align: center; }
+.slide figcaption a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.slide figcaption a:hover { text-decoration: underline; }
+.car-btn {
+  position: absolute; top: calc(clamp(15rem, 24vw, 22rem) / 2); transform: translateY(-50%); z-index: 2;
+  width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 88%, transparent); color: var(--text);
+  font-size: 1.5rem; line-height: 1; cursor: pointer; box-shadow: 0 4px 14px rgb(0 0 0 / .3);
 }
+.car-btn:hover { border-color: var(--accent); color: var(--accent); }
+.car-btn.prev { left: -.6rem; }
+.car-btn.next { right: -.6rem; }
+@media (hover: none) { .car-btn { display: none; } }
